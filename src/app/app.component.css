@@ -1,0 +1,43 @@
+.pokemons{
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+  margin: 60px;
+  justify-content: center;
+}
+
+.container{
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.container:hover{
+  font-size: 0px
+}
+.pokemons div img {
+  width: 100%;
+  height: 100px;
+  transition: transform 0.3s;
+}
+
+.pokemons div:hover img {
+  transform: scale(2);
+}
+
+ul {
+  display: flex;
+  gap: 45px;
+  flex-wrap: wrap;
+}
+
+/*.selected  {*/
+/*  position: absolute;*/
+/*  justify-content: center;*/
+/*  align-items: center;*/
+/*  display: flex;*/
+/*  top: 277px;*/
+/*  height: 25%;*/
+/*  width: 25%;*/
+/*  left: 482px;*/
+/*}*/
