@@ -1,0 +1,23 @@
+<div class="pokemon-single-container">
+  <div *ngIf="showPokemonDetail" class="pokemon-info">
+    <h1>Pokemon Type:</h1>
+    <div *ngFor="let type of showPokemonDetail.pokemon.types">
+      <div class="pokemonType">
+        <button  mat-button color="warn" [ngClass]="getButtonTypeClass(type.type.name)">
+          {{type.type.name}}
+        </button>
+      </div>
+    </div>
+  </div>
+  <img [src]="selectedPokemonArtwork" alt="" class="single-pokemon">
+  <mat-form-field>
+    <mat-label><h3>
+      Select a move:
+    </h3></mat-label>
+    <mat-select>
+      <mat-option *ngFor="let move of showPokemonDetail?.pokemon.moves" [value]="move.move.name">
+        {{ move.move.name }}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+</div>
