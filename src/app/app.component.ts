@@ -12,15 +12,14 @@ export interface Pokemon {
 }
 
 @Component({
-  selector: 'my-app',
+  selector: 'root',
  templateUrl: './app.component.html',
  styleUrls: ['./app.component.css'],
 })
 export class AppComponent implements OnInit {
   limit = 14;
   offset = 0;
-  pokemons: any[] = [];
-  data: any
+  pokemons: Pokemon[] = [];
   currentPage: number = 0
   chosenPokemonMoves: any
   constructor(private dataService: DataService) {
@@ -37,6 +36,7 @@ export class AppComponent implements OnInit {
       .pipe(take(1))
       .subscribe((result) => {
         this.pokemons = result.pokemons.results;
+        console.log(result)
       });
   }
 
@@ -58,7 +58,5 @@ export class AppComponent implements OnInit {
       this.currentPage--
     }
   }
-  showMoves(pokemonName: Pokemon) {
-    this.dataService.readDetails(pokemonName.name).subscribe((res) => this.chosenPokemonMoves = res)
-  }
+
 }

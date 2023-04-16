@@ -19,6 +19,10 @@ export const GET_POKEMONS_DETAILS = `query pokemon($name: String!) {
     }
   }
 }`
+// accuracy
+// power
+// pp
+
 export const GET_POKEMONS = `
   query pokemons($limit: Int, $offset: Int) {
     pokemons(limit: $limit, offset: $offset) {
