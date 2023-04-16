@@ -21,7 +21,7 @@
   transition: transform 0.3s;
 }
 
-.pokemons div:hover img {
+.pokemons div:hover img:not(.selected) {
   transform: scale(2);
 }
 
@@ -31,13 +31,11 @@ ul {
   flex-wrap: wrap;
 }
 
-/*.selected  {*/
-/*  position: absolute;*/
-/*  justify-content: center;*/
-/*  align-items: center;*/
-/*  display: flex;*/
-/*  top: 277px;*/
-/*  height: 25%;*/
-/*  width: 25%;*/
-/*  left: 482px;*/
-/*}*/
+.selected {
+  display: flex;
+  justify-content: center;
+  position: absolute;
+  width: 45% !important;
+  height: 35% !important;
+
+}

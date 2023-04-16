@@ -1,6 +1,15 @@
 import {Component, ElementRef, OnInit} from '@angular/core';
 import { DataService } from './data.service';
-import { take } from 'rxjs/operators';
+import {take, tap} from 'rxjs/operators';
+
+export interface Pokemon {
+  artwork: string,
+  id: number,
+  image: string,
+  selected: boolean,
+  name: string,
+  url: string
+}
 
 @Component({
   selector: 'my-app',
@@ -14,8 +23,6 @@ export class AppComponent implements OnInit {
   data: any
   currentPage: number = 0
   chosenPokemonMoves: any
-  selectedPokemon: any;
-
   constructor(private dataService: DataService) {
 
   }
@@ -37,6 +44,7 @@ export class AppComponent implements OnInit {
     this.offset += this.limit;
     this.loadPokemons();
     this.chosenPokemonMoves = ''
+
     if (this.currentPage < 125) this.currentPage++
 
   }
@@ -50,12 +58,7 @@ export class AppComponent implements OnInit {
       this.currentPage--
     }
   }
-  showMoves(pokemonName: string) {
-//     this.selectedPokemon = pokemonName;
-// this.selectedPokemon.classList = 'active'
-    this.dataService.readDetails(pokemonName).subscribe((res) =>
-        // console.log(res.pokemon.types)
-        this.chosenPokemonMoves = res
-      )
+  showMoves(pokemonName: Pokemon) {
+    this.dataService.readDetails(pokemonName.name).subscribe((res) => this.chosenPokemonMoves = res)
   }
 }

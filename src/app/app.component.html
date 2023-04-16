@@ -1,15 +1,14 @@
-<div *ngIf="pokemons">
-  <div class="pokemons">
-    <div *ngFor="let pokemon of pokemons" class="container" (click)="showMoves(pokemon.name)"   [ngClass]="{'selected': pokemon.name === selectedPokemon}"
-    >
-      <img [src]="pokemon.artwork" loading="lazy">
-      <p >{{pokemon.name}}</p>
+  <div *ngIf="pokemons">
+    <div class="pokemons">
+      <div *ngFor="let pokemon of pokemons" class="container" >
+        <img [src]="pokemon.artwork" loading="lazy" [ngClass]="{ 'selected': pokemon.selected }" (click)="showMoves(pokemon)" cdkDrag>
+        <p >{{pokemon.name}}</p>
+      </div>
     </div>
+    <button (click)="loadNextPage()">Next</button>
+    <span>{{ currentPage }}</span>
+    <button (click)="loadPreviousPage()">Previous</button>
   </div>
-  <button (click)="loadNextPage()">Next</button>
-  <span>{{ currentPage }}</span>
-  <button (click)="loadPreviousPage()">Previous</button>
-</div>
 
 <div *ngIf="chosenPokemonMoves">
   <div *ngFor="let type of chosenPokemonMoves.pokemon.types">
@@ -24,5 +23,4 @@
       {{ move.move.name }}
     </li>
   </ul>
-
 </div>
