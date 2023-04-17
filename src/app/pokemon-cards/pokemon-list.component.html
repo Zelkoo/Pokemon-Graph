@@ -2,12 +2,12 @@
   <div class="pokemonsImageContainer" data-cy="pokemonsImageContainer">
     <div *ngFor="let pokemon of pokemons" class="container" cdkDrag>
       <img class="singlePokemonImage" [src]="pokemon.artwork" loading="lazy" [ngClass]="{ 'selected': pokemon.selected }" (click)="showPokemonDetails(pokemon)" alt="" />
-      <p >{{pokemon.name}}</p>
+      <p >{{pokemon.name | titlecase}}</p>
     </div>
   </div>
 </div>
   <pokemon-single
-    [selectedPokemonArtwork]="selectedPokemonArtwork"
+    [selectedPokemonArtwork]="pokemonArtowrk"
     [pokemons]="pokemons"
-    [showPokemonDetail]="showPokemonDetail">
+    [showPokemonDetail]="pokemonDetails">
   </pokemon-single>

@@ -1,6 +1,6 @@
 import {Component, Input, OnInit} from "@angular/core";
-import {Pokemon} from "../app.component";
 import {DataService} from "../data.service";
+import {Pokemon, PokemonDetails} from "../helper/types";
 
 @Component({
   selector: 'pokemon-list',
@@ -8,9 +8,9 @@ import {DataService} from "../data.service";
   styleUrls: ['./pokemon-list.component.css'],
 })
 export class PokemonList implements OnInit {
-  @Input() pokemons: any;
-  @Input() showPokemonDetail: any;
-  selectedPokemonArtwork: string = '';
+  @Input() pokemons: Pokemon[] = [];
+  pokemonDetails!: PokemonDetails;
+  pokemonArtowrk!: string;
   constructor(private dataService: DataService) {
   }
 
@@ -18,10 +18,10 @@ export class PokemonList implements OnInit {
   }
 
   showPokemonDetails(pokemonName: Pokemon) {
-    console.log(pokemonName)
-    return this.dataService.readDetails(pokemonName.name).subscribe((res) => {
-      this.showPokemonDetail = res
-      this.selectedPokemonArtwork = pokemonName.artwork
+    const { name, artwork } = pokemonName
+    return this.dataService.readDetails(name).subscribe((pokemonDetails: PokemonDetails) => {
+      this.pokemonDetails = pokemonDetails
+      this.pokemonArtowrk = artwork
     })
   }
 }

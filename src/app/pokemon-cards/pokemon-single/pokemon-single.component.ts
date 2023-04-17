@@ -1,5 +1,5 @@
 import {Component, Input, OnInit} from "@angular/core";
-import {Pokemon} from "../../app.component";
+import {Pokemon, PokemonDetails} from "../../helper/types";
 
 
 @Component({
@@ -10,12 +10,15 @@ import {Pokemon} from "../../app.component";
 export class PokemonSignle implements OnInit {
   @Input() pokemons: Pokemon[] = [];
   @Input() selectedPokemonArtwork: string = ''
-  @Input() showPokemonDetail: any
+  @Input() showPokemonDetail!: any;
   constructor() {
   }
 
   ngOnInit() {
-    console.log(this.pokemons)
+    setTimeout(() => {
+    console.log(this.showPokemonDetail)
+
+    },5000)
   }
   getButtonTypeClass(typeName: string): string {
     switch(typeName) {

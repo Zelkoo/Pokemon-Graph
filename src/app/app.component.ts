@@ -1,15 +1,9 @@
-import {Component, ElementRef, OnInit} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import { DataService } from './data.service';
-import {take, tap} from 'rxjs/operators';
+import {take} from 'rxjs/operators';
+import {Pokemon} from "./helper/types";
 
-export interface Pokemon {
-  artwork: string,
-  id: number,
-  image: string,
-  selected: boolean,
-  name: string,
-  url: string
-}
+
 
 @Component({
   selector: 'root',

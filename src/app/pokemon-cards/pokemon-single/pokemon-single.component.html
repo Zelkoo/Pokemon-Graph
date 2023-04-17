@@ -1,4 +1,4 @@
-<div class="pokemon-single-container">
+<div class="pokemon-single-container" *ngIf="selectedPokemonArtwork">
   <div *ngIf="showPokemonDetail" class="pokemon-info">
     <h1>Pokemon Type:</h1>
     <div *ngFor="let type of showPokemonDetail.pokemon.types">
