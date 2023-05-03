@@ -19,6 +19,7 @@
 .singlePokemonImage {
   width: 100%;
   height: 100px;
+  min-width: 100px;
   transition: transform 0.3s;
 }
 
