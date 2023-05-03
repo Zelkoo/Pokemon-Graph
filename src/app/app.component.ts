@@ -45,6 +45,7 @@ export class AppComponent implements OnInit {
       .subscribe(/* unsubscribed by `first()` */);
   }
 
+  // TODO fix: on quick pagination page change the previous loading state of this.loadPokemons(); should be destroyed (http request interrupted, subscribe callback should never happen)
   onPageChange(event: PageEvent) {
     this.offset = event.pageIndex * event.pageSize;
     this.limit = event.pageSize;
