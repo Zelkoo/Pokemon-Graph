@@ -41,3 +41,12 @@ export const GET_POKEMONS = `
     }
   }
 `;
+export const GET_POKEMONS_ARTWORK = `
+  query pokemons($limit: Int, $offset: Int) {
+    pokemons(limit: $limit, offset: $offset) {
+      results {
+        artwork
+      }
+    }
+  }
+`;
